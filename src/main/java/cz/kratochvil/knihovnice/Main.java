@@ -10,7 +10,7 @@ import java.util.Objects;
 
 public class Main extends Application {
     public void start(Stage stage) throws Exception {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/cz/kratochvil/knihovnice/Login.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
             stage.setScene(new Scene(root, 400, 400));
             stage.show();
     }
