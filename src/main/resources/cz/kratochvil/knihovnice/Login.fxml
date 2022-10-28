@@ -23,7 +23,7 @@
             <Font size="15.0" />
          </font>
       </TextField>
-      <Label fx:id="lblStat" layoutX="26.0" layoutY="69.0" prefHeight="17.0" prefWidth="239.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+      <Label fx:id="lblStat" layoutX="50.0" layoutY="200.0" opacity="0.8" prefHeight="21.0" prefWidth="221.0" textAlignment="CENTER" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
          <font>
             <Font size="15.0" />
          </font>
