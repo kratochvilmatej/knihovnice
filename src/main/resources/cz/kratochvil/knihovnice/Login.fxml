@@ -11,10 +11,6 @@
 
 <AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.kratochvil.knihovnice.MainController">
    <children>
-      <Button layoutX="98.0" layoutY="229.0" mnemonicParsing="false" onAction="#Login" prefHeight="31.0" prefWidth="115.0" text="Přihlásit se" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
-         <font>
-            <Font size="15.0" />
-         </font></Button>
       <PasswordField fx:id="txPass" layoutX="68.0" layoutY="169.0" promptText="Heslo" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
          <font>
             <Font size="15.0" />
@@ -40,5 +36,14 @@
             <Font name="Sitka Small Bold" size="35.0" />
          </font>
       </Label>
+      <Button layoutX="140.0" layoutY="229.0" mnemonicParsing="false" onAction="#Login" prefHeight="31.0" prefWidth="115.0" text="Přihlásit se">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button layoutX="50.0" layoutY="229.0" mnemonicParsing="false" onAction="#Reset" prefHeight="31.0" prefWidth="87.0" text="Resetovat">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

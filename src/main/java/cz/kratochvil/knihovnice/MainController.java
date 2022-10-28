@@ -27,4 +27,9 @@ public class MainController {
 
     }
 
+    public void Reset(ActionEvent event) {
+        txPass.setText("");
+        txUser.setText("");
+        lblStat.setText("");
+    }
 }
