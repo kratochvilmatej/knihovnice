@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -26,6 +28,16 @@
       <Label fx:id="lblStat" layoutX="50.0" layoutY="200.0" opacity="0.8" prefHeight="21.0" prefWidth="221.0" textAlignment="CENTER" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
          <font>
             <Font size="15.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="66.0" fitWidth="54.0" layoutX="7.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@ikona.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="61.0" layoutY="31.0" text="Knihovna">
+         <font>
+            <Font name="Sitka Small Bold" size="35.0" />
          </font>
       </Label>
    </children>
