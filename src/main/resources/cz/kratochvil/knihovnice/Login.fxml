@@ -46,5 +46,10 @@
          </font>
       </Button>
       <Button layoutX="115.0" layoutY="274.0" mnemonicParsing="false" onAction="#prepniRegister" text="Registrace" />
+      <Label layoutX="74.0" layoutY="79.0" text="Přihlášení Uživatele">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
