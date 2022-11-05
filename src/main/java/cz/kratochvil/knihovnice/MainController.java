@@ -2,26 +2,17 @@ package cz.kratochvil.knihovnice;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
 import java.io.*;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.HashMap;
-import java.util.Objects;
 
 public class MainController {
     @FXML
@@ -70,7 +61,7 @@ public class MainController {
     private Button btnBackLogin;
 
     @FXML
-    private AnchorPane pneMain;
+    private Button btnLogOut;
 
     public String usernames = "";
 
@@ -96,7 +87,7 @@ public class MainController {
             ex.printStackTrace();
         }
 
-        String[] username = usernames.split("\\s+");
+        String[] username = usernames.split(";");
 
         try {
             File file = new File("src/main/resources/cz/kratochvil/knihovnice/passwords.txt");
@@ -113,7 +104,7 @@ public class MainController {
             ex.printStackTrace();
         }
 
-        String[] password = passwords.split("\\s+");
+        String[] password = passwords.split(";");
 
         for (int x = 0; x < username.length; x++) {
             loginy.put(username[x], password[x]);
@@ -136,38 +127,43 @@ public class MainController {
     }
 
     public void register(ActionEvent event) {
-        if (alreadyExists()==false) {
-            if (!txUser.getText().contains("\\s+") || !txPass.getText().contains("\\s+")) {
-                if (!txUser.getText().isBlank() && !txPass.getText().isBlank()) {
-                    try {
-                        prepniLogin(event);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    String regUsername = txUser.getText();
-                    String regPassword = txPass.getText();
+        if (!txUser.getText().contains(";") || !txPass.getText().contains(";")) {
+            if (!alreadyExists()) {
+                if (!txUser.getText().contains("\\s+") || !txPass.getText().contains("\\s+")) {
+                    if (!txUser.getText().isBlank() && !txPass.getText().isBlank()) {
+                        String regUsername = txUser.getText();
+                        String regPassword = txPass.getText();
+                        try {
+                            prepniLogin(event);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
 
-                    try {
-                        Files.writeString(Paths.get("src/main/resources/cz/kratochvil/knihovnice/usernames.txt"), regUsername + " ", StandardOpenOption.APPEND);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    try {
-                        Files.writeString(Paths.get("src/main/resources/cz/kratochvil/knihovnice/passwords.txt"), regPassword + " ", StandardOpenOption.APPEND);
-                    } catch (IOException ex) {
-                        ex.printStackTrace();
+                        try {
+                            Files.writeString(Paths.get("src/main/resources/cz/kratochvil/knihovnice/usernames.txt"), regUsername + ";", StandardOpenOption.APPEND);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            Files.writeString(Paths.get("src/main/resources/cz/kratochvil/knihovnice/passwords.txt"), regPassword + ";", StandardOpenOption.APPEND);
+                        } catch (IOException ex) {
+                            ex.printStackTrace();
+                        }
+                    } else {
+                        lblStat.setTextFill(Color.rgb(255, 0, 0, 1));
+                        lblStat.setText("Uživatelské Jméno ani Heslo nesmí být prázdné");
                     }
                 } else {
                     lblStat.setTextFill(Color.rgb(255, 0, 0, 1));
-                    lblStat.setText("Uživatelské Jméno ani Heslo nesmí být prázdné");
+                    lblStat.setText("Uživatelské Jméno ani Heslo nesmí obsahovat mezery!");
                 }
             } else {
                 lblStat.setTextFill(Color.rgb(255, 0, 0, 1));
-                lblStat.setText("Uživatelské Jméno ani Heslo nesmí obsahovat mezery!");
+                lblStat.setText("Tento uživatel již existuje!");
             }
         } else {
             lblStat.setTextFill(Color.rgb(255, 0, 0, 1));
-            lblStat.setText("Tento uživatel již existuje, zvolte jiné Uživatelské jméno!");
+            lblStat.setText("Uživatelské Jméno ani Heslo nesmí obsahovat tento znak!");
         }
     }
 
@@ -192,7 +188,7 @@ public class MainController {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        if(usernames.contains(txUser.getText())) {
+        if (usernames.contains(txUser.getText())) {
             return true;
         } else {
             return false;
@@ -205,16 +201,29 @@ public class MainController {
         btnLogin.setVisible(false);
         btnReg.setVisible(true);
         btnBackLogin.setVisible(true);
+        lblStat.setText("");
     }
 
     public void prepniLogin(ActionEvent e) throws IOException {
         lblSiteInfo.setText("Přihlášení Uživatele");
         btnReg.setVisible(false);
         btnBackLogin.setVisible(false);
+        imgIkonaMain.setVisible(false);
+        lblKnihovnaMain.setVisible(false);
+        lblLogged.setVisible(false);
+        lblLoggedText.setVisible(false);
+        btnLogOut.setVisible(false);
+        imgIkonaLogin.setVisible(true);
+        lblKnihovnaLogin.setVisible(true);
+        lblSiteInfo.setVisible(true);
+        txUser.setVisible(true);
+        txPass.setVisible(true);
+        btnReset.setVisible(true);
         btnLogin.setVisible(true);
         btnToReg.setVisible(true);
         txUser.clear();
         txPass.clear();
+        lblStat.setText("");
     }
 
     public void prepniMain(ActionEvent e) throws IOException {
@@ -233,5 +242,11 @@ public class MainController {
         lblKnihovnaMain.setVisible(true);
         lblLogged.setVisible(true);
         lblLoggedText.setVisible(true);
+        btnLogOut.setVisible(true);
+    }
+
+    public void logOut(ActionEvent e) throws IOException {
+        loggedUser = "";
+        prepniLogin(e);
     }
 }

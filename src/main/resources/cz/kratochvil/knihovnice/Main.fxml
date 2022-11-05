@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pneMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.kratochvil.knihovnice.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.kratochvil.knihovnice.MainController">
    <children>
       <ImageView fx:id="imgIkonaMain" fitHeight="74.0" fitWidth="85.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" visible="false">
          <image>
@@ -23,25 +23,25 @@
       </Label>
       <Label fx:id="lblLoggedText" layoutX="696.0" layoutY="16.0" text="Přihlášený Uživatel :" visible="false">
          <font>
-            <Font size="20.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblLogged" layoutX="879.0" layoutY="16.0" prefHeight="30.0" prefWidth="164.0" text="Prihlaseni Uzivatel" visible="false">
+      <Label fx:id="lblLogged" layoutX="891.0" layoutY="16.0" prefHeight="30.0" prefWidth="164.0" text="Prihlaseni Uzivatel" visible="false">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <PasswordField fx:id="txPass" layoutX="436.0" layoutY="375.0" prefHeight="31.0" prefWidth="215.0" promptText="Heslo">
+      <PasswordField fx:id="txPass" layoutX="436.0" layoutY="376.0" prefHeight="31.0" prefWidth="215.0" promptText="Heslo">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <TextField fx:id="txUser" layoutX="436.0" layoutY="344.0" prefHeight="31.0" prefWidth="215.0" promptText="Uživatelské Jméno">
+      <TextField fx:id="txUser" layoutX="436.0" layoutY="345.0" prefHeight="31.0" prefWidth="215.0" promptText="Uživatelské Jméno">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <Label fx:id="lblStat" alignment="CENTER" contentDisplay="CENTER" layoutX="378.0" layoutY="407.0" opacity="0.8" prefHeight="21.0" prefWidth="330.0" textAlignment="CENTER">
+      <Label fx:id="lblStat" alignment="CENTER" contentDisplay="CENTER" layoutX="350.0" layoutY="407.0" opacity="0.8" prefHeight="21.0" prefWidth="380.0" textAlignment="CENTER">
          <font>
             <Font size="15.0" />
          </font>
@@ -67,7 +67,7 @@
          </font>
       </Button>
       <Button fx:id="btnToReg" layoutX="500.0" layoutY="472.0" mnemonicParsing="false" onAction="#prepniRegister" text="Registrace" />
-      <Label fx:id="lblSiteInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="464.0" layoutY="306.0" text="Přihlášení Uživatele" textAlignment="CENTER">
+      <Label fx:id="lblSiteInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="414.0" layoutY="306.0" prefHeight="27.0" prefWidth="259.0" text="Přihlášení uživatele">
          <font>
             <Font size="18.0" />
          </font>
@@ -78,5 +78,6 @@
          </font>
       </Button>
       <Button fx:id="btnBackLogin" layoutX="483.0" layoutY="472.0" mnemonicParsing="false" onAction="#prepniLogin" text="Zpět k Přihlášení" visible="false" />
+      <Button fx:id="btnLogOut" layoutX="891.0" layoutY="46.0" mnemonicParsing="false" onAction="#logOut" text="Odhlásit se" visible="false" />
    </children>
 </AnchorPane>
