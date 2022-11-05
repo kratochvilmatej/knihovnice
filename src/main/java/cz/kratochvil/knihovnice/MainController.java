@@ -6,8 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -24,13 +28,49 @@ public class MainController {
     private Label lblStat;
 
     @FXML
-    public Label lblLogged;
+    private Label lblLogged;
+
+    @FXML
+    private Label lblLoggedText;
+
+    @FXML
+    private Label lblKnihovnaMain;
+
+    @FXML
+    private Label lblSiteInfo;
+
+    @FXML
+    private Label lblKnihovnaLogin;
 
     @FXML
     private TextField txUser;
 
     @FXML
     private TextField txPass;
+
+    @FXML
+    private ImageView imgIkonaMain;
+
+    @FXML
+    private ImageView imgIkonaLogin;
+
+    @FXML
+    private Button btnLogin;
+
+    @FXML
+    private Button btnReset;
+
+    @FXML
+    private Button btnToReg;
+
+    @FXML
+    private Button btnReg;
+
+    @FXML
+    private Button btnBackLogin;
+
+    @FXML
+    private AnchorPane pneMain;
 
     public String usernames = "";
 
@@ -78,9 +118,6 @@ public class MainController {
         for (int x = 0; x < username.length; x++) {
             loginy.put(username[x], password[x]);
         }
-        for (String i : loginy.keySet()) {
-            System.out.println(i + " " + loginy.get(i));
-        }
 
         String heslo = loginy.get(txUser.getText());
 
@@ -98,7 +135,7 @@ public class MainController {
         }
     }
 
-    public void Register(ActionEvent event) {
+    public void register(ActionEvent event) {
         if (alreadyExists()==false) {
             if (!txUser.getText().contains("\\s+") || !txPass.getText().contains("\\s+")) {
                 if (!txUser.getText().isBlank() && !txPass.getText().isBlank()) {
@@ -134,7 +171,7 @@ public class MainController {
         }
     }
 
-    public void Reset(ActionEvent event) {
+    public void reset(ActionEvent event) {
         txPass.setText("");
         txUser.setText("");
         lblStat.setText("");
@@ -162,31 +199,39 @@ public class MainController {
         }
     }
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
     public void prepniRegister(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Register.fxml")));
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root, 400, 400);
-        stage.setScene(scene);
-        stage.show();
+        lblSiteInfo.setText("Registrace nového uživatele");
+        btnToReg.setVisible(false);
+        btnLogin.setVisible(false);
+        btnReg.setVisible(true);
+        btnBackLogin.setVisible(true);
     }
 
     public void prepniLogin(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root, 400, 400);
-        stage.setScene(scene);
-        stage.show();
+        lblSiteInfo.setText("Přihlášení Uživatele");
+        btnReg.setVisible(false);
+        btnBackLogin.setVisible(false);
+        btnLogin.setVisible(true);
+        btnToReg.setVisible(true);
+        txUser.clear();
+        txPass.clear();
     }
 
     public void prepniMain(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Main.fxml")));
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root, 1080, 720);
-        stage.setScene(scene);
-        stage.show();
+        txUser.setVisible(false);
+        txPass.setVisible(false);
+        lblStat.setVisible(false);
+        imgIkonaLogin.setVisible(false);
+        lblKnihovnaLogin.setVisible(false);
+        btnLogin.setVisible(false);
+        btnReset.setVisible(false);
+        btnToReg.setVisible(false);
+        lblSiteInfo.setVisible(false);
+        btnReg.setVisible(false);
+        btnBackLogin.setVisible(false);
+        imgIkonaMain.setVisible(true);
+        lblKnihovnaMain.setVisible(true);
+        lblLogged.setVisible(true);
+        lblLoggedText.setVisible(true);
     }
 }

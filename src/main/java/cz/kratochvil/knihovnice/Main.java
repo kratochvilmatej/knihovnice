@@ -11,11 +11,10 @@ import java.util.Objects;
 
 public class Main extends Application {
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Login.fxml")));
-        stage.setScene(new Scene(root, 400, 400));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Main.fxml")));
+        stage.setScene(new Scene(root, 1080, 720));
         stage.show();
     }
-
     public static void main(String[] args) {
         launch();
 
