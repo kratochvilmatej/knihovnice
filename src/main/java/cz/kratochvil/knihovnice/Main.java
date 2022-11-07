@@ -15,13 +15,14 @@ public class Main extends Application {
         stage.setScene(new Scene(root, 1080, 720));
         stage.show();
     }
+
     public static void main(String[] args) {
         launch();
 
 
         //Zaloz Username seznam, pokud neexistuje
-        File usernames = new File("src/main/resources/cz/kratochvil/knihovnice/usernames.txt");
-        if(!usernames.exists()) {
+        File usernames = new File("src/main/resources/cz/kratochvil/knihovnice/data/usernames.txt");
+        if (!usernames.exists()) {
             try {
                 usernames.createNewFile();
             } catch (IOException e) {
@@ -30,16 +31,13 @@ public class Main extends Application {
         }
 
         //Zaloz Password seznam, pokud neexistuje
-        File passwords = new File("src/main/resources/cz/kratochvil/knihovnice/passwords.txt");
-        if(!passwords.exists()) {
+        File passwords = new File("src/main/resources/cz/kratochvil/knihovnice/data/passwords.txt");
+        if (!passwords.exists()) {
             try {
                 passwords.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
-
     }
 }
-
