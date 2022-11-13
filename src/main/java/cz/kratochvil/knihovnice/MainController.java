@@ -1254,15 +1254,6 @@ public class MainController {
             lblVypujceni.setTextFill(Color.rgb(0, 255, 0, 1));
             lblVypujceni.setText("Knihy úspěšně vráceny!");
             vypniVraceni(e);
-            chk1.setSelected(false);
-            chk2.setSelected(false);
-            chk3.setSelected(false);
-            chk4.setSelected(false);
-            chk5.setSelected(false);
-            chk6.setSelected(false);
-            chk7.setSelected(false);
-            chk8.setSelected(false);
-            chk9.setSelected(false);
         }
     }
 
@@ -1276,5 +1267,14 @@ public class MainController {
         if (lblVypujceni.getTextFill().toString().equals("0xff0000ff")) {
             lblVypujceni.setText("");
         }
+        chk1.setSelected(false);
+        chk2.setSelected(false);
+        chk3.setSelected(false);
+        chk4.setSelected(false);
+        chk5.setSelected(false);
+        chk6.setSelected(false);
+        chk7.setSelected(false);
+        chk8.setSelected(false);
+        chk9.setSelected(false);
     }
 }
