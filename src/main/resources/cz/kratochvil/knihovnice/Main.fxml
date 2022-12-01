@@ -157,7 +157,7 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <Label fx:id="lblStat" alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="108.0" opacity="0.8" prefHeight="21.0" prefWidth="380.0" textAlignment="CENTER">
+            <Label fx:id="lblStat" alignment="CENTER" contentDisplay="CENTER" layoutX="19.0" layoutY="101.0" opacity="0.8" prefHeight="21.0" prefWidth="380.0" textAlignment="CENTER">
                <font>
                   <Font size="15.0" />
                </font>
@@ -183,7 +183,7 @@
                </font>
             </Button>
             <Button fx:id="btnToReg" layoutX="174.0" layoutY="237.0" mnemonicParsing="false" onAction="#prepniRegister" text="Registrace" />
-            <Label fx:id="lblSiteInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="87.0" layoutY="91.0" prefHeight="27.0" prefWidth="259.0" text="Přihlášení uživatele">
+            <Label fx:id="lblSiteInfo" alignment="CENTER" contentDisplay="CENTER" layoutX="81.0" layoutY="84.0" prefHeight="27.0" prefWidth="259.0" text="Přihlášení uživatele">
                <font>
                   <Font size="18.0" />
                </font>
